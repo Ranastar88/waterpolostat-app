@@ -1,5 +1,18 @@
+<div class="container-fluid">
+  
+  <header class="d-flex flex-wrap justify-content-center py-2 mb-2 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-1 mb-md-0 me-md-auto text-dark text-decoration-none">      
+      <span class="fs-4">WaterPolo Stat</span>
+    </a>
+
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a [routerLink]="['/']" class="nav-link" aria-current="page">Home</a></li>
+      <li class="nav-item"><a [routerLink]="['partita','nuova']" class="nav-link">Nuova Partita</a></li>
+    </ul>
+  </header>
+</div>
 <main class="flex-shrink-0">
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </main>
 <footer class="footer mt-auto py-1 bg-light">
   <div class="container">

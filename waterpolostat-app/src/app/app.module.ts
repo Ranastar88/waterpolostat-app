@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { NuovaPartitaComponent } from './partita/nuova-partita/nuova-partita.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LineupComponent } from './shared/models/lineup/lineup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NuovaPartitaComponent,
-    DashboardComponent
+    DashboardComponent,
+    LineupComponent
   ],
   imports: [
     BrowserModule,
