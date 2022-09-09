@@ -1,7 +1,7 @@
 import { Guid } from "guid-typescript";
 import { Lineup } from "./lineup";
 
-interface Partita{
+export interface Partita{
     id:Guid;
     nomeSquadraCasa:string;
     nomeSquadraOspiti:string;
@@ -9,4 +9,6 @@ interface Partita{
     goalOspiti:number;
     lineupCasa:Lineup[];
     lineupOspiti:Lineup[];
+    campionato:string;
+    luogo:string;
 }

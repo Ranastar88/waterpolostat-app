@@ -6,19 +6,20 @@ import { AppComponent } from './app.component';
 import { NuovaPartitaComponent } from './partita/nuova-partita/nuova-partita.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LineupComponent } from './shared/models/lineup/lineup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NuovaPartitaComponent,
-    DashboardComponent,
-    LineupComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
