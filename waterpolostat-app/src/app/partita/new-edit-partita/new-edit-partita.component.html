@@ -1,0 +1,57 @@
+<div class="container">
+    <h2>Nuova Partita</h2>
+    <form [formGroup]="partitaForm">
+        <ngb-accordion [closeOthers]="true" activeIds="DatiGenerali">
+            <ngb-panel id="DatiGenerali">
+                <ng-template ngbPanelTitle>
+                    Dati Generali
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="nomeSquadraCasa" class="form-label">Nome Squadra di casa</label>
+                            <input class="form-control" [formControl]="nomeSquadraCasa">
+                          </div>
+                          
+                    </div>
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel id="RosterSquadraCasa">
+                <ng-template ngbPanelTitle>
+                    Squadra di casa
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon
+                    officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                    Brunch 3 wolf
+                    moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                    Nihil anim
+                    keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                    excepteur butcher
+                    vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+                    probably haven't
+                    heard of them accusamus labore sustainable VHS.
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel id="RosterSquadraOspiti">
+                <ng-template ngbPanelTitle>
+                    Squadra ospiti
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                    wolf moon
+                    officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                    Brunch 3 wolf
+                    moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                    Nihil anim
+                    keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                    excepteur butcher
+                    vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+                    probably haven't
+                    heard of them accusamus labore sustainable VHS.
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </form>
+</div>
