@@ -10,9 +10,34 @@
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="nomeSquadraCasa" class="form-label">Nome Squadra di casa</label>
-                            <input class="form-control" [formControl]="nomeSquadraCasa">
-                          </div>
-                          
+                            <input class="form-control" [ngClass]="validationHelper.getClassName(nomeSquadraCasa)" [formControl]="nomeSquadraCasa">
+                            <div class="invalid-feedback">
+                                {{validationHelper.getErrorMessage(nomeSquadraCasa)}}
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="nomeSquadraOspiti" class="form-label">Nome Squadra di casa</label>
+                            <input class="form-control" [ngClass]="validationHelper.getClassName(nomeSquadraOspiti)" [formControl]="nomeSquadraOspiti">
+                            <div class="invalid-feedback">
+                                {{validationHelper.getErrorMessage(nomeSquadraOspiti)}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label for="luogo" class="form-label">Luogo</label>
+                            <input class="form-control" [ngClass]="validationHelper.getClassName(luogo)" [formControl]="luogo">
+                            <div class="invalid-feedback">
+                                {{validationHelper.getErrorMessage(luogo)}}
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="campionato" class="form-label">Campionato</label>
+                            <input class="form-control" [ngClass]="validationHelper.getClassName(campionato)" [formControl]="campionato">
+                            <div class="invalid-feedback">
+                                {{validationHelper.getErrorMessage(campionato)}}
+                            </div>
+                        </div>
                     </div>
                 </ng-template>
             </ngb-panel>

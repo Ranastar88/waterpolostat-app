@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidationInputService } from 'src/app/shared/helpers/validation-input.service';
 import { Partita } from 'src/app/shared/models/partita';
 
 @Component({
@@ -21,7 +22,7 @@ export class NewEditPartitaComponent implements OnInit {
   get luogo() { return this.partitaForm.get('luogo') as FormControl; }
   get campionato() { return this.partitaForm.get('campionato') as FormControl; }
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, public validationHelper: ValidationInputService) { }
 
   ngOnInit(): void {
   }
