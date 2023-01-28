@@ -1,5 +1,6 @@
+import { FormatWidth } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidationInputService } from 'src/app/shared/helpers/validation-input.service';
 import { Partita } from 'src/app/shared/models/partita';
 
@@ -14,6 +15,7 @@ export class NewEditPartitaComponent implements OnInit {
     nomeSquadraOspiti: ['', [Validators.required, Validators.maxLength(100)]],
     luogo: ['', [Validators.maxLength(100)]],
     campionato: ['', [Validators.maxLength(100)]],
+    lineupCasa: [FormArray]
   });
 
   get id() { return this.partitaForm.get('id') as FormControl; }
@@ -21,6 +23,7 @@ export class NewEditPartitaComponent implements OnInit {
   get nomeSquadraOspiti() { return this.partitaForm.get('nomeSquadraOspiti') as FormControl; }
   get luogo() { return this.partitaForm.get('luogo') as FormControl; }
   get campionato() { return this.partitaForm.get('campionato') as FormControl; }
+  get lineupCasa() { return this.partitaForm.get('lineupCasa') as FormArray; }
 
   constructor(private formBuilder: FormBuilder, public validationHelper: ValidationInputService) { }
 
