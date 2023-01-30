@@ -2,6 +2,7 @@ import { FormatWidth } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidationInputService } from 'src/app/shared/helpers/validation-input.service';
+import { Lineup } from 'src/app/shared/models/lineup';
 import { Partita } from 'src/app/shared/models/partita';
 
 @Component({
@@ -15,7 +16,13 @@ export class NewEditPartitaComponent implements OnInit {
     nomeSquadraOspiti: ['', [Validators.required, Validators.maxLength(100)]],
     luogo: ['', [Validators.maxLength(100)]],
     campionato: ['', [Validators.maxLength(100)]],
-    lineupCasa: [FormArray]
+    lineupCasa: new FormArray([])
+  });
+
+  lineupFg = (data:Lineup) => ({
+    numero: [data.numero, [Validators.required]],
+    nome: ['', [Validators.required, Validators.maxLength(100)]],
+    ruolo: ['', [Validators.required]]
   });
 
   get id() { return this.partitaForm.get('id') as FormControl; }
@@ -28,6 +35,11 @@ export class NewEditPartitaComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, public validationHelper: ValidationInputService) { }
 
   ngOnInit(): void {
+    for (let index = 0; index < 14; index++) {      
+      var l = new Lineup();
+      l.numero = index;
+      this.lineupCasa.controls.push(this.formBuilder.group(this.lineupFg(l)));
+    }
   }
 
 }

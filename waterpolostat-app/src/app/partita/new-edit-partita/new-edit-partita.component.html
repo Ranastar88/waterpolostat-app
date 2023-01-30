@@ -46,7 +46,13 @@
                     Squadra di casa
                 </ng-template>
                 <ng-template ngbPanelContent>
-                    <app-edit-lineup ></app-edit-lineup>
+                    <div class="row"  *ngFor="let item of lineupCasa.controls; let i=index" [formGroupName]="i">
+                        <div class="col-md-2">
+                            <input type="text" [formControlName]="lineupCasa[i].get('numero')"></div>
+                        <div class="col-md-8">
+                            <input type="text" [formControlName]="lineupCasa[i].nome">
+                        </div>
+                    </div>
                 </ng-template>
             </ngb-panel>
             <ngb-panel id="RosterSquadraOspiti">

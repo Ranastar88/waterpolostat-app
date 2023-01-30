@@ -7,15 +7,11 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditLineupComponent implements OnInit {
   @Input() public parentFg: FormArray;
-  public lineupForm: FormGroup = this.formBuilder.group({
-    numero: ['', [Validators.required]],
-    nome: ['', [Validators.required, Validators.maxLength(100)]],
-    ruolo: ['', [Validators.required]]
-  });
+  @Input() public test: string;
   gestioneNumeri: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
-    //this.parentFg.controls.push(this.lineupForm);
+    console.log(this.parentFg);
     //this.parentFg.controls.push(this.lineupForm);
    }
 

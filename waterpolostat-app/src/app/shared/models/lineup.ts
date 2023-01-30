@@ -1,7 +1,7 @@
 import { Guid } from "guid-typescript";
 import { Ruoli } from "./enum/ruoli";
 
-export interface Lineup {
+export class Lineup {
     id:Guid;
     partitaId:Guid;
     squadraId:Guid;
