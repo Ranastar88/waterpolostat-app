@@ -36,9 +36,7 @@ export class NewEditPartitaComponent implements OnInit {
 
   ngOnInit(): void {
     for (let index = 0; index < 14; index++) {      
-      var l = new Lineup();
-      l.numero = index;
-      this.lineupCasa.controls.push(this.formBuilder.group(this.lineupFg(l)));
+      this.lineupCasa.push(this.formBuilder.group(this.lineupFg(new Lineup(index+1))));
     }
   }
 

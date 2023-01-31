@@ -45,12 +45,33 @@
                 <ng-template ngbPanelTitle>
                     Squadra di casa
                 </ng-template>
-                <ng-template ngbPanelContent>
-                    <div class="row"  *ngFor="let item of lineupCasa.controls; let i=index" [formGroupName]="i">
-                        <div class="col-md-2">
-                            <input type="text" [formControlName]="lineupCasa[i].get('numero')"></div>
-                        <div class="col-md-8">
-                            <input type="text" [formControlName]="lineupCasa[i].nome">
+                <ng-template ngbPanelContent formArrayName="lineupCasa">
+                    <div class="row mb-2 d-sm-none">
+                        <div class="col-md-1">
+                            <label>Numero</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Nome</label>
+                        </div>
+                        <div class="col-md-5">
+                            <label>Ruolo</label>
+                        </div>
+                    </div>
+                    <div class="row border-bottom mb-2" *ngFor="let item of lineupCasa.controls; let i=index" [formGroupName]="i">
+                        <div class="col-2 col-md-1 mb-2">
+                            <input type="text" formControlName="numero" class="form-control text-center" readonly />
+                        </div>
+                        <div class="col-10 col-md-6 mb-2">
+                            <input class="form-control" formControlName="nome" />
+                        </div>
+                        <div class="col-md-5 mb-2">
+                            <select class="form-select" aria-label="Ruolo" formControlName="ruolo">
+                                <option value="">Ruolo</option>
+                                <option value="0">Portiere</option>
+                                <option value="1">Difensore</option>
+                                <option value="2">Attaccante</option>
+                                <option value="3">Centroboa</option>
+                              </select>
                         </div>
                     </div>
                 </ng-template>
