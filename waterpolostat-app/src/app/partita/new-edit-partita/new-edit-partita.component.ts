@@ -1,6 +1,7 @@
 import { FormatWidth } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgbAccordion } from '@ng-bootstrap/ng-bootstrap';
 import { ValidationInputService } from 'src/app/shared/helpers/validation-input.service';
 import { Lineup } from 'src/app/shared/models/lineup';
 import { Partita } from 'src/app/shared/models/partita';
@@ -16,7 +17,8 @@ export class NewEditPartitaComponent implements OnInit {
     nomeSquadraOspiti: ['', [Validators.required, Validators.maxLength(100)]],
     luogo: ['', [Validators.maxLength(100)]],
     campionato: ['', [Validators.maxLength(100)]],
-    lineupCasa: new FormArray([])
+    lineupCasa: new FormArray([]),
+    lineupOspiti: new FormArray([])
   });
 
   lineupFg = (data:Lineup) => ({
@@ -31,13 +33,28 @@ export class NewEditPartitaComponent implements OnInit {
   get luogo() { return this.partitaForm.get('luogo') as FormControl; }
   get campionato() { return this.partitaForm.get('campionato') as FormControl; }
   get lineupCasa() { return this.partitaForm.get('lineupCasa') as FormArray; }
+  get lineupOspiti() { return this.partitaForm.get('lineupOspiti') as FormArray; }
 
+  @ViewChild('formAcc') formAccordion: NgbAccordion;
   constructor(private formBuilder: FormBuilder, public validationHelper: ValidationInputService) { }
 
   ngOnInit(): void {
     for (let index = 0; index < 14; index++) {      
       this.lineupCasa.push(this.formBuilder.group(this.lineupFg(new Lineup(index+1))));
+      this.lineupOspiti.push(this.formBuilder.group(this.lineupFg(new Lineup(index+1))));
     }
   }
+
+  nextFirstStep(): void{
+    this.formAccordion.collapseAll();
+    this.formAccordion.expand("RosterSquadraCasa");
+  }
+
+  nextSecondStep(): void{
+    this.formAccordion.collapseAll();
+    this.formAccordion.expand("RosterSquadraOspiti");
+  }
+  
+  salva(): void{}
 
 }

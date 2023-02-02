@@ -7,14 +7,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewEditPartitaComponent } from './partita/new-edit-partita/new-edit-partita.component';
-import { EditLineupComponent } from './partita/edit-lineup/edit-lineup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    NewEditPartitaComponent,
-    EditLineupComponent
+    NewEditPartitaComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +22,6 @@ import { EditLineupComponent } from './partita/edit-lineup/edit-lineup.component
     FormsModule
   ],
   exports:[
-    EditLineupComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
