@@ -10,14 +10,16 @@
                     <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="nomeSquadraCasa" class="form-label">Nome Squadra di casa</label>
-                            <input class="form-control" [ngClass]="validationHelper.getClassName(nomeSquadraCasa)" [formControl]="nomeSquadraCasa">
+                            <input class="form-control" [ngClass]="validationHelper.getClassName(nomeSquadraCasa)"
+                                [formControl]="nomeSquadraCasa">
                             <div class="invalid-feedback">
                                 {{validationHelper.getErrorMessage(nomeSquadraCasa)}}
                             </div>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="nomeSquadraOspiti" class="form-label">Nome Squadra di casa</label>
-                            <input class="form-control" [ngClass]="validationHelper.getClassName(nomeSquadraOspiti)" [formControl]="nomeSquadraOspiti">
+                            <input class="form-control" [ngClass]="validationHelper.getClassName(nomeSquadraOspiti)"
+                                [formControl]="nomeSquadraOspiti">
                             <div class="invalid-feedback">
                                 {{validationHelper.getErrorMessage(nomeSquadraOspiti)}}
                             </div>
@@ -26,14 +28,16 @@
                     <div class="row">
                         <div class="mb-3 col-md-4">
                             <label for="luogo" class="form-label">Luogo</label>
-                            <input class="form-control" [ngClass]="validationHelper.getClassName(luogo)" [formControl]="luogo">
+                            <input class="form-control" [ngClass]="validationHelper.getClassName(luogo)"
+                                [formControl]="luogo">
                             <div class="invalid-feedback">
                                 {{validationHelper.getErrorMessage(luogo)}}
                             </div>
                         </div>
                         <div class="mb-3 col-md-4">
                             <label for="campionato" class="form-label">Campionato</label>
-                            <input class="form-control" [ngClass]="validationHelper.getClassName(campionato)" [formControl]="campionato">
+                            <input class="form-control" [ngClass]="validationHelper.getClassName(campionato)"
+                                [formControl]="campionato">
                             <div class="invalid-feedback">
                                 {{validationHelper.getErrorMessage(campionato)}}
                             </div>
@@ -41,7 +45,8 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button class="btn btn-primary float-end" type="button" (click)="nextFirstStep()">Avanti</button>
+                            <button class="btn btn-primary float-end" type="button"
+                                (click)="nextFirstStep()">Avanti</button>
                         </div>
                     </div>
                 </ng-template>
@@ -54,9 +59,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                <label class="form-check-label" for="flexSwitchCheckChecked">Utilizza solo numeri</label>
-                              </div>                              
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    [(ngModel)]="checkNumLineupCasa" [ngModelOptions]="{standalone: true}"
+                                    (change)="toggleNumLineupCasa()">
+                                <label class="form-check-label" for="flexSwitchCheckCasaChecked">Utilizza solo
+                                    numeri</label>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-2 d-md-flex d-none">
@@ -70,7 +78,8 @@
                             <label>Ruolo</label>
                         </div>
                     </div>
-                    <div class="row border-bottom mb-2" *ngFor="let item of lineupCasa.controls; let i=index" [formGroupName]="i">
+                    <div class="row border-bottom mb-2" *ngFor="let item of lineupCasa.controls; let i=index"
+                        [formGroupName]="i">
                         <div class="col-2 col-md-1 mb-2">
                             <input type="text" formControlName="numero" class="form-control text-center" readonly />
                         </div>
@@ -84,12 +93,13 @@
                                 <option value="1">Difensore</option>
                                 <option value="2">Attaccante</option>
                                 <option value="3">Centroboa</option>
-                              </select>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button class="btn btn-primary float-end" type="button" (click)="nextSecondStep()">Avanti</button>
+                            <button class="btn btn-primary float-end" type="button"
+                                (click)="nextSecondStep()">Avanti</button>
                         </div>
                     </div>
                 </ng-template>
@@ -102,9 +112,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                <label class="form-check-label" for="flexSwitchCheckChecked">Utilizza solo numeri</label>
-                              </div>                              
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    [(ngModel)]="checkNumLineupOspiti" [ngModelOptions]="{standalone: true}"
+                                    (change)="toggleNumLineupOspiti()">
+                                <label class="form-check-label" for="flexSwitchCheckOspitiChecked">Utilizza solo
+                                    numeri</label>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-2 d-md-flex d-none">
@@ -118,7 +131,8 @@
                             <label>Ruolo</label>
                         </div>
                     </div>
-                    <div class="row border-bottom mb-2" *ngFor="let item of lineupOspiti.controls; let i=index" [formGroupName]="i">
+                    <div class="row border-bottom mb-2" *ngFor="let item of lineupOspiti.controls; let i=index"
+                        [formGroupName]="i">
                         <div class="col-2 col-md-1 mb-2">
                             <input type="text" formControlName="numero" class="form-control text-center" readonly />
                         </div>
@@ -132,7 +146,7 @@
                                 <option value="1">Difensore</option>
                                 <option value="2">Attaccante</option>
                                 <option value="3">Centroboa</option>
-                              </select>
+                            </select>
                         </div>
                     </div>
                     <div class="row">

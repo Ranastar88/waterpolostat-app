@@ -27,6 +27,9 @@ export class NewEditPartitaComponent implements OnInit {
     ruolo: ['', [Validators.required]]
   });
 
+  checkNumLineupCasa: boolean = false;
+  checkNumLineupOspiti: boolean = false;
+
   get id() { return this.partitaForm.get('id') as FormControl; }
   get nomeSquadraCasa() { return this.partitaForm.get('nomeSquadraCasa') as FormControl; }
   get nomeSquadraOspiti() { return this.partitaForm.get('nomeSquadraOspiti') as FormControl; }
@@ -57,4 +60,37 @@ export class NewEditPartitaComponent implements OnInit {
   
   salva(): void{}
 
+  toggleNumLineupCasa(): void{
+    let num = 1;
+    for (let control of this.lineupCasa.controls) {
+      if (control instanceof FormGroup) {
+        if(this.checkNumLineupCasa){
+          control.get("nome").setValue("Giocatore #" + num);
+          if(num == 1 || num == 13) control.get("ruolo").setValue(0);
+          control.get("nome").disable();
+        }else{
+          control.get("nome").setValue("");
+          control.get("nome").enable();
+        }        
+        num++;
+     }
+    }
+  }
+
+  toggleNumLineupOspiti(): void{
+    let num = 1;
+    for (let control of this.lineupOspiti.controls) {
+      if (control instanceof FormGroup) {
+        if(this.checkNumLineupOspiti){
+          control.get("nome").setValue("Giocatore #" + num);
+          if(num == 1 || num == 13) control.get("ruolo").setValue(0);
+          control.get("nome").disable();
+        }else{
+          control.get("nome").setValue("");
+          control.get("nome").enable();
+        }        
+        num++;
+     }
+    }
+  }
 }
