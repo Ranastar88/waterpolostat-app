@@ -5,6 +5,7 @@ import { NgbAccordion } from '@ng-bootstrap/ng-bootstrap';
 import { ValidationInputService } from 'src/app/shared/helpers/validation-input.service';
 import { Lineup } from 'src/app/shared/models/lineup';
 import { Partita } from 'src/app/shared/models/partita';
+import { PartiteService } from 'src/app/shared/services/partite.service';
 
 @Component({
   selector: 'app-new-edit-partita',
@@ -39,7 +40,7 @@ export class NewEditPartitaComponent implements OnInit {
   get lineupOspiti() { return this.partitaForm.get('lineupOspiti') as FormArray; }
 
   @ViewChild('formAcc') formAccordion: NgbAccordion;
-  constructor(private formBuilder: FormBuilder, public validationHelper: ValidationInputService) { }
+  constructor(private formBuilder: FormBuilder, public validationHelper: ValidationInputService, public partiteService: PartiteService) { }
 
   ngOnInit(): void {
     for (let index = 0; index < 14; index++) {      
@@ -58,7 +59,10 @@ export class NewEditPartitaComponent implements OnInit {
     this.formAccordion.expand("RosterSquadraOspiti");
   }
   
-  salva(): void{}
+  salva(): void{
+    var p_dati: Partita = {...p_dati, ...this.partitaForm.getRawValue()};
+    this.partiteService.creaPartita(p_dati);
+  }
 
   toggleNumLineupCasa(): void{
     let num = 1;
