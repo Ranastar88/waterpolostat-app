@@ -72,7 +72,8 @@
               "browserTarget": "waterpolostat-app:build:production"
             },
             "development": {
-              "browserTarget": "waterpolostat-app:build:development"
+              "browserTarget": "waterpolostat-app:build:development",
+              "port": 4310
             }
           },
           "defaultConfiguration": "development"

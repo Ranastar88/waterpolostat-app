@@ -23,6 +23,10 @@ export class PartiteService {
     this.saveonlocaldb();
     return partita.id;
   }
+
+  public getElencoPartite(): PartitaList[]{
+    return this.partiteList;
+  }
   
   public getPartitaById(id: Guid):Partita{
     var partitajson = localStorage.getItem("Partita_" + id.toString());

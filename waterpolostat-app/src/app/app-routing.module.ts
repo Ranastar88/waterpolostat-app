@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ListPartiteComponent } from './partita/list-partite/list-partite.component';
 import { NewEditPartitaComponent } from './partita/new-edit-partita/new-edit-partita.component';
 
 const routes: Routes = [
+  { path: 'partita/elenco', component: ListPartiteComponent },
   { path: 'partita/nuova', component: NewEditPartitaComponent },
   { path: '**', component: DashboardComponent }
 ];
