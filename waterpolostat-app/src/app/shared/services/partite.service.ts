@@ -14,14 +14,21 @@ export class PartiteService {
     this.updatefromlocaldb();
   }
 
-  public creaPartita(partita: Partita):Guid{
-    partita.id = Guid.create();
+  public creaPartita(partita: Partita):string{
+    partita.id = Guid.create().toString();
     var partitalist:PartitaList = {...partitalist,...partita};
     partitalist.localStorageName = "Partita_" + partita.id.toString();
     localStorage.setItem(partitalist.localStorageName, JSON.stringify(partita));
     this.partiteList.push(partitalist);
     this.saveonlocaldb();
     return partita.id;
+  }
+
+  
+  public getPartita(id: string):Partita{
+    let local_p = localStorage.getItem("Partita_" + id);
+    if(!local_p) return null;
+    return JSON.parse(local_p) as Partita;
   }
 
   public getElencoPartite(): PartitaList[]{

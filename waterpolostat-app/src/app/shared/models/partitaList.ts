@@ -1,7 +1,7 @@
 import { Guid } from "guid-typescript";
 
-export interface PartitaList{
-    id:Guid;
+export class PartitaList{
+    id:string;
     nomeSquadraCasa:string;
     nomeSquadraOspiti:string;
     goalCasa:number;
@@ -9,4 +9,5 @@ export interface PartitaList{
     campionato:string;
     luogo:string;
     localStorageName:string;
+
 }

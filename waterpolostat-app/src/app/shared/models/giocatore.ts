@@ -1,6 +1,6 @@
 import { Guid } from "guid-typescript";
 
-export interface Giocatore{    
+export class Giocatore{    
     id:Guid;
     nome:string;    
 }

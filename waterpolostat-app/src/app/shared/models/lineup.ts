@@ -3,12 +3,12 @@ import { Ruoli } from "./enum/ruoli";
 
 export class Lineup {
     constructor(num: number) { 
-        this.id = Guid.create();
+        this.id = Guid.create().toString();
         this.numero = num;
      }
-    id:Guid;
-    partitaId:Guid;
-    squadraId:Guid;
+    id:string;
+    partitaId:string;
+    squadraId:string;
     nome:string;
     numero:number;
     ruolo: Ruoli;

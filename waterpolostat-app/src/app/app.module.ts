@@ -8,13 +8,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewEditPartitaComponent } from './partita/new-edit-partita/new-edit-partita.component';
 import { ListPartiteComponent } from './partita/list-partite/list-partite.component';
+import { EditStatComponent } from './partita/edit-stat/edit-stat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     NewEditPartitaComponent,
-    ListPartiteComponent
+    ListPartiteComponent,
+    EditStatComponent
   ],
   imports: [
     BrowserModule,

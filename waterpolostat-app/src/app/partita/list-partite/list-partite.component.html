@@ -2,7 +2,11 @@
     <h2>Elenco Partite</h2>
     <ul>
         <li *ngFor="let partita of elencoPartite">
-            <h2>{{partita.nomeSquadraCasa}} - {{partita.nomeSquadraOspiti}}</h2>
+            <h2>
+                <button [routerLink]="['/partita','edit-stat', partita.id]">
+                    {{partita.nomeSquadraCasa}} - {{partita.nomeSquadraOspiti}}
+                </button>
+            </h2>
         </li>
     </ul>
 </div>
