@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewEditPartitaComponent } from './partita/new-edit-partita/new-edit-partita.component';
 import { ListPartiteComponent } from './partita/list-partite/list-partite.component';
 import { EditStatComponent } from './partita/edit-stat/edit-stat.component';
+import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { DatabaseService } from './shared/services/database.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,22 @@ import { EditStatComponent } from './partita/edit-stat/edit-stat.component';
   ],
   exports:[
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => initDatabase,
+      multi: true,
+      deps: [
+        /* your dependencies */
+      ],
+    },
+    DatabaseService,
+    { provide: APP_BASE_HREF, useValue: '/' },
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
