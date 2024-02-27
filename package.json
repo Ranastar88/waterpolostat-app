@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "rxdb": "^15.8.0"
+    "rxdb": "^15.9.1"
   }
 }
